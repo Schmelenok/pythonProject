@@ -55,3 +55,13 @@
 # input_txt = str(input())
 # commands = {'квадрат':two, 'куб':cub, 'корень':f_sqrt, 'модуль':f_abs, 'синус':f_sin }
 # print(commands[input_txt](input_num))
+# 12 14 79 7 4 123 45 90 111
+# numbers_list = sorted(input().split(), key=int)    # [int(i) for i in input().split()]
+# def difsum(i):
+#     s = 0
+#     for x in range(len(i)):
+#         num = int(i[x])
+#         s += num
+#     return s                       # return sum([int(i) for i in str(n)]
+# print(*sorted(numbers_list, key=difsum))
+
