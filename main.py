@@ -239,3 +239,52 @@
 # print(*sorted(mixed_list, key= lambda x: str(x)), sep=' ')
 
 # print(*map(lambda x: abs(int(x)-255), input().split()))
+
+# colors = ['red', 'green', 'blue']
+# for index, item in enumerate(colors):
+#     print(index, item)
+# print(*enumerate(colors))
+
+# def ignore_command(command):
+#     ignore = ['alias', 'configuration', 'ip', 'sql', 'select', 'update', 'exec', 'del', 'truncate']
+#     # for i in ignore:
+#     #     if i in command:
+#     #         return True
+#     # return False
+#     return any([i in command for i in ignore])
+# print(ignore_command('delete all'))
+
+# countries = ['Russia', 'USA', 'UK', 'Germany', 'France', 'India']
+# capitals = ['Moscow', 'Washington', 'London', 'Berlin', 'Paris', 'Delhi']
+# population = [145_934_462, 331_002_651, 80_345_321, 67_886_011, 65_273_511, 1_380_004_385]
+# for capital, country, popul in zip(capitals, countries, population):
+#     print(f'{capital} is the capital of {country}, population equal {popul} people.')
+
+# abscissas = [float(i) for i in input().split()]
+# ordinates = [float(i) for i in input().split()]
+# applicates = [float(i) for i in input().split()]
+# print(all([x ** 2 + y ** 2 + z ** 2 <= 4 for x,y,z in zip(abscissas, ordinates, applicates)]))
+
+# ip_list = [int(i) for i in input().split('.') if i.isdigit()]
+# if len(ip_list) != 4:
+#     print(False)
+# else:
+#     print(all([ 0 <= x <= 255 for x in ip_list]))               # print(all([i.isdigit() and 0 <= int(i) <= 255 for i in input().split('.')]))
+
+# ab_list = [str(i) for i in range(int(input()), int(input())+1)]
+# print(*filter(lambda x: x if all(int(x) % int(i) == 0 for i in x if '0' not in i) and '0' not in x else False, ab_list))
+# print(*[i for i in range(int(input()), int(input()) + 1) if '0' not in str(i) and all([i % int(j) == 0 for j in str(i)])])
+
+# print(*filter(lambda n: all(int(i) and not n % int(i) for i in str(n)), range(int(input()), int(input()) + 1)))
+
+# txt = str(input())
+# print(('NO','YES')[all([any([i.isdigit() for i in txt]), any([i.islower() for i in txt]), any([i.isupper() for i in txt]), len(txt) >= 7])])
+
+# l = list()
+# for i in range(int(input())):
+#     for j in range(int(input())):
+#         l.append(input()[-1])
+# print()
+
+# n = int(input())
+# print(('NO', 'YES')[all([any(['5' in str(input()) for i in range(int(input()))]) for j in range(n)])])
