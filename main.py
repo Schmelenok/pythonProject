@@ -288,3 +288,47 @@
 
 # n = int(input())
 # print(('NO', 'YES')[all([any(['5' in str(input()) for i in range(int(input()))]) for j in range(n)])])
+
+# file_name = str(input())
+# file_link = open(file_name, 'r')
+# content = file_link.read()
+# print(content)
+# file_link.close()
+
+# from random import *
+# file_link = open('lines.txt', 'r', encoding='UTF-8')
+# content = file_link.readlines()
+# print(choice(content))
+# file_link.close()
+
+
+# file_link = open('nums.txt', 'r', encoding='UTF-8')
+# content = list(filter(None, [i.strip() for i in file_link.readlines()]))
+# print(sum([int(i) for i in content]))
+# file_link.close()
+
+# file = open('nums.txt')
+# a = file.read()
+# print(a)
+# b = file.read().split()
+#
+# s = sum(map(int, file.read().split()))
+# file.close()
+
+# txt = """
+#
+#
+#
+#
+#   453459384
+#
+#
+#            32242"""
+# a = txt.split()
+# print(a)
+# print(sum([int(i) for i in a]))
+
+file = open('prices.txt', encoding='UTF-8')
+file_content = [i.strip().split('\t') for i in file.readlines()]
+file_sum = sum(map(lambda x: int(x[1])*int(x[2]), file_content))
+print(file_sum)
