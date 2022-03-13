@@ -328,7 +328,91 @@
 # print(a)
 # print(sum([int(i) for i in a]))
 
-file = open('prices.txt', encoding='UTF-8')
-file_content = [i.strip().split('\t') for i in file.readlines()]
-file_sum = sum(map(lambda x: int(x[1])*int(x[2]), file_content))
-print(file_sum)
+# file = open('prices.txt', encoding='UTF-8')
+# file_content = [i.strip().split('\t') for i in file.readlines()]
+# file_sum = sum(map(lambda x: int(x[1])*int(x[2]), file_content))
+# print(file_sum)
+# print(*[i.strip() for i in file.readlines()[::-1]], sep='\n')
+
+# with open('lines.txt', 'r') as file:
+#     # print(max([i.strip() for i in file], key=len))
+#     l = list([i.strip() for i in file.readlines()])
+#     print(*filter(lambda x: x if len(x) == max(len(i) for i in l) else False, l), sep='\n')
+
+# with open('numbers.txt', 'r') as file:
+#     [print(sum(int(i) for i in line.split())) for line in file]
+
+# with open('nums.txt') as file:
+#     element = [i.strip() for i in file.readlines()]
+#     l = list()
+#     for i in element:
+#         for j in i:
+#             if j not in '0123456789':
+#                 i = i.replace(j, ' ')
+#         i = i.strip().split()
+#         l.extend(i)
+#     print(sum(map(int, l)))
+
+# with open('nums.txt', encoding='utf-8') as file:
+#     print(sum([int(num) for num in ''.join(list(map(lambda sym: sym if sym.isdigit() else ' ' , file.read()))).split()]))
+
+# with open('nums.txt', encoding='utf-8') as file:
+#     # print(list(map(lambda x: x if x.isdigit() else ' ', file.read().split())))
+#     print(sum([int(i) for i in ''.join(list(map(lambda x: x if x.isdigit() else ' ', file.read()))).split()]))
+
+# with open('file.txt', encoding='utf-8') as file:
+#     text = file.read()
+#     lines = text.count('\n') + 1
+#     words = text.count(' ') + lines
+#     chars = 0
+#     for i in text.strip('\n '):
+#         if i.isalpha():
+#             chars += 1
+#     print(f"""Input file contains:
+# {chars} letters
+# {words} words
+# {lines} lines
+# """)
+
+# from random import *
+# with open('first_names.txt', encoding='utf-8') as f_names, open('last_names.txt', encoding='utf-8') as f_surnames:
+#     names = f_names.readlines()
+#     surnames = f_surnames.readlines()
+#     [print(f'{choice(names).strip()} {choice(surnames).strip()}') for i in range(3)]
+
+# with open('population.txt', encoding='utf-8') as file:
+#     cities = [i.strip().split('\t') for i in file.readlines()]
+#     [print(i[0]) for i in cities if i[0].startswith('G') and int(i[1]) > 5*10**5]
+
+# def read_csv():
+#     with open('data.csv', encoding='utf-8') as file:
+#         k = file.readline().strip().split(',')
+#         v = [i.strip().split(',') for i in file.readlines()]
+#     l = list()
+#     for i in v:
+#         l.append(dict(zip(k,i)))
+#     # print(*l, sep='\n')
+#     return l
+# read_csv()
+
+# from random import *
+# with open('random.txt', 'w', encoding='utf-8') as file_out:
+#     file_out.writelines([str(i)+'\n' for i in sample(range(111, 777), 25)])
+
+# with open('output.txt', 'w', encoding='utf-8') as file_out, open('input.txt', encoding='utf-8') as file_in:
+#     text = [i.strip() for i in file_in.readlines()]
+#     file_out.writelines([f'{str(i[0])}) {i[1]}\n' for i in enumerate(text, 1)])
+
+# with open('new_scores.txt', 'w', encoding='utf-8') as file_out, open('class_scores.txt', encoding='utf-8') as file_in:
+#     text = [i.strip().split() for i in file_in.readlines()]
+#     names = map(lambda x: x[0], text)
+#     marks = map(lambda x: str(int(x[1]) + 5) if int(x[1]) + 5 <= 100 else str(int(x[1]) + (100 - int(x[1]))), text)
+#     new_scores = [i for i in zip(names, marks)]
+#     file_out.writelines([f'{i[0]} {i[1]}\n' for i in new_scores])
+
+# with open('class_scores.txt') as inp, open('new_scores.txt','w') as out:
+#     for line in inp:
+#         name, score = line.split()
+#         score = int(score) + 5 if int(score) + 5 <= 100 else int(score) + (100 - int(score))
+#         out.write(f'{name} {score}\n')
+
