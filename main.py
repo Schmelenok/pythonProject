@@ -416,3 +416,21 @@
 #         score = int(score) + 5 if int(score) + 5 <= 100 else int(score) + (100 - int(score))
 #         out.write(f'{name} {score}\n')
 
+# objects = [1, 2, 1, 2, 3]
+# s = set()
+# for i in objects:
+#     s.add(id(i))
+# print(len(s))
+
+# x = print(4)
+# print(type(x))
+
+def closest_mod_5(x):
+    if x % 5 == 0:
+        return x
+    else:
+        return x - x % 5 + 5
+
+x = int(input())
+y = closest_mod_5(x)
+print(y)
