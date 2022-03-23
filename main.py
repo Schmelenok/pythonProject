@@ -135,27 +135,80 @@
 #     def add(self, v):
 #         self.val += v
 
-class Buffer:
-    def __init__(self):
-        # конструктор без аргументов
-        self.l = list()
+# class Buffer:
+#     def __init__(self):
+#         # конструктор без аргументов
+#         self.l = list()
+#
+#     def add(self, *a):
+#         # добавить следующую часть последовательности
+#
+#         for i in a:
+#             l.append()
+#
+#     def get_current_part(self):
+#         # вернуть сохраненные в текущий момент элементы последовательности в порядке, в котором они были добавлены
+#         return self.l[:4]
+#
+# buf = Buffer()
+# buf.add(1, 2, 3)
+# buf.get_current_part() # вернуть [1, 2, 3]
+# buf.add(4, 5, 6) # print(15) – вывод суммы первой пятерки элементов
+# buf.get_current_part() # вернуть [6]
+# buf.add(7, 8, 9, 10) # print(40) – вывод суммы второй пятерки элементов
+# buf.get_current_part() # вернуть []
+# buf.add(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1) # print(5), print(5) – вывод сумм третьей и четвертой пятерки
+# buf.get_current_part() # вернуть [1]
 
-    def add(self, *a):
-        # добавить следующую часть последовательности
 
-        for i in a:
-            l.append()
+# def counter_add(num):
+#     def add():
+#         return num + 5
+#     return add
+# k = int(input())
+# cnt = counter_add(k)
+# print(cnt())
 
-    def get_current_part(self):
-        # вернуть сохраненные в текущий момент элементы последовательности в порядке, в котором они были добавлены
-        return self.l[:4]
+# def counter_add(n):
+#     def add(k):
+#         k += n
+#         return k
+#     return add
+# k = int(input())
+# cnt = counter_add(2)
+# print(cnt(k))
+# print(cnt(k))
+# print(cnt(k))
 
-buf = Buffer()
-buf.add(1, 2, 3)
-buf.get_current_part() # вернуть [1, 2, 3]
-buf.add(4, 5, 6) # print(15) – вывод суммы первой пятерки элементов
-buf.get_current_part() # вернуть [6]
-buf.add(7, 8, 9, 10) # print(40) – вывод суммы второй пятерки элементов
-buf.get_current_part() # вернуть []
-buf.add(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1) # print(5), print(5) – вывод сумм третьей и четвертой пятерки
-buf.get_current_part() # вернуть [1]
+# def tag_func(text):
+#     def make_tag():
+#         return f'<h1>{text}</h1>'
+#     return make_tag
+# s = str(input())
+# tag = tag_func(s)
+# print(tag())
+
+# def tag_func(t):
+#     def make_tag(text):
+#         return f'<{t}>{text}</{t}>'
+#     return make_tag
+# tag = str(input())
+# string = str(input())
+# tag_string = tag_func(tag)
+# print(tag_string(string))
+
+# def type_func(tp):
+#     def make(text):
+#         string_list = [int(i) for i in text.strip().split()]
+#         return string_list if tp == 'list' else tuple(string_list)
+#     return make
+# tp = str(input())
+# string = str(input())
+# list_or_tuple = type_func(tp)
+# print(list_or_tuple(string))
+def foo():
+    return 2 / 0
+try:
+    foo()
+except (ArithmeticError, AssertionError) as error:
+    print(type(error).__name__)
