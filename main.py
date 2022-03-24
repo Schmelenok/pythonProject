@@ -206,9 +206,13 @@
 # string = str(input())
 # list_or_tuple = type_func(tp)
 # print(list_or_tuple(string))
-def foo():
-    return 2 / 0
-try:
-    foo()
-except (ArithmeticError, AssertionError) as error:
-    print(type(error).__name__)
+
+# def foo():
+#     return 2 / 0
+# try:
+#     foo()
+# except (ArithmeticError, AssertionError) as error:
+#     print(type(error).__name__)
+
+a = 10
+print(get(a))
