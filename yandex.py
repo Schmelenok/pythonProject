@@ -162,3 +162,176 @@
 # print('Погода в городах:')
 # for city in cities:
 #     print(city, what_weather(city))
+
+
+# min_required_area = 40 # минимальная требуемая площадь
+# max_affordable_price = 190000 # максимально допустимая арендная ставка
+# third_ring_radius = 6.7 # максимальное расстояние от центра
+#
+# open_hours_number = 18 # количество рабочих часов в сутки
+# traffic2visitors_average_ratio = 1 / 225 # средняя доля посетителей от числа прохожих
+# traffic2visitors_pessimistic_ratio = 1 / 300 # минимальная доля посетителей от числа прохожих
+# visitors2purchases_average_ratio = 0.1 # средняя доля покупателей от числа посетителей
+# visitors2purchases_pessimistic_ratio = 0.05 # минимальная доля покупателей от числа посетителей
+# average_order_value = 21000 # средняя стоимость покупки
+# average_order_value_pessimistic = 20000 # минимальная стоимость покупки
+# trade_margin = 0.2 # наценка
+# days_in_months = 30 # количество рабочих дней в месяц
+#
+# # множитель для расчёта прибыльности в среднем сценарии
+# income_multiplier_average = (open_hours_number *
+#                              traffic2visitors_average_ratio *
+#                              visitors2purchases_average_ratio *
+#                              average_order_value *
+#                              trade_margin *
+#                              days_in_months)
+#
+# # множитель для расчёта прибыльности в пессимистичном сценарии
+# income_multiplier_pessimistic = (open_hours_number *
+#                                  traffic2visitors_pessimistic_ratio *
+#                                  visitors2purchases_pessimistic_ratio *
+#                                  average_order_value_pessimistic *
+#                                  trade_margin *
+#                                  days_in_months)
+#
+# number_of_employees = 2 # количество продавцов
+# employee_salary = 50000 # зарплата продавца
+# tax_multiplier = 1.43 # множитель для расчёта зарплаты с налогами
+#
+# # зарплатная часть расходов
+# addition_to_expenses = number_of_employees * employee_salary * tax_multiplier
+#
+# # минимальная ожидаемая прибыль
+# min_expected_profits = 500000
+#
+# import pandas
+# realty_df = pandas.read_csv('yandex_realty_data.csv')
+#
+# filtered_objects_area = []
+# filtered_objects_price = []
+# filtered_objects_traffic = []
+# filtered_objects_address = []
+# filtered_objects_profits = []
+#
+# for index in range(len(realty_df)):
+#     if (realty_df['floor'][index] == 1 and
+#         realty_df['area'][index] >= min_required_area and
+#         realty_df['price'][index] <= max_affordable_price and
+#         realty_df['commercial_type'][index] in ['FREE_PURPOSE', 'RETAIL'] and
+#         realty_df['distance'][index] <= third_ring_radius and
+#         realty_df['already_taken'][index] == 0 and
+#         realty_df['competitors'][index] <= 1):
+#         filtered_objects_area.append(realty_df['area'][index])
+#         filtered_objects_price.append(realty_df['price'][index])
+#         filtered_objects_traffic.append(realty_df['traffic'][index])
+#         filtered_objects_address.append(realty_df['address'][index])
+#         filtered_objects_profits.append(realty_df['traffic'][index] *
+#         income_multiplier_average - (realty_df['price'][index] +
+#         addition_to_expenses))
+#
+# for index in range(len(filtered_objects_profits)):
+#     if filtered_objects_profits[index] > min_expected_profits:
+#         print(filtered_objects_price[index])
+#         print(filtered_objects_traffic[index])
+#         print(filtered_objects_address[index])
+#         print(filtered_objects_profits[index])
+#         print(filtered_objects_traffic[index] * income_multiplier_pessimistic -
+#         (filtered_objects_price[index] + addition_to_expenses))
+#         print('----------')
+
+
+# import pandas
+# import seaborn
+#
+# data = pandas.read_csv('support_data.csv')
+#
+# # названия сегментов и интервалов
+# segments_old = ['Segment 0', 'Segment 1', 'Segment 2']
+# segments_new = ['Потенциальные клиенты', 'Обычные клиенты', 'VIP-клиенты']
+# intervals = ['До внедрения роботов', 'После внедрения роботов']
+#
+# intervals_column = list(data['interval'])
+# segments_column = list(data['segment']) # ваш код здесь
+# score_column = list(data['score']) # ваш код здесь
+
+# # средние оценки
+# mean_scores = []
+# for segment in segments_old:
+#
+#     # допишите код
+#     before_score, before_counter, after_counter, after_score = 0, 0, 0, 0
+#     for index in range(len(data)):
+#         if segments_column[index] == segment:
+#             if intervals_column[index] == 'До внедрения роботов':
+#                 before_score += score_column[index]
+#                 before_counter += 1  # допишите код
+#             if intervals_column[index] == 'После внедрения роботов':
+#                 after_score += score_column[index]
+#                 after_counter += 1
+#
+#         # допишите код
+#
+#     segment_scores = [before_score / before_counter, after_score / after_counter]  # допишите код
+#     mean_scores.append(segment_scores)
+#
+# seaborn.heatmap(mean_scores, xticklabels=intervals, yticklabels=segments_new, annot=True, cmap='RdYlGn')
+
+# duration_column = list(data['duration'])
+#
+# mean_duration = []
+#
+# # внешний цикл по трём сегментам
+# for segment in segments_old:
+#     interval_scores = []
+#     # вложенный цикл по двум периодам
+#     for interval in intervals:
+#         duration = 0
+#         counter = 0
+#         # вложенный цикл по строкам
+#         for index in range(len(data)):
+#             if (segments_column[index] == segment and
+#                 intervals_column[index] == interval):
+#                 duration += duration_column[index]
+#                 counter += 1
+#         interval_scores.append(duration / counter)
+#     mean_duration.append(interval_scores)
+#
+# seaborn.heatmap(mean_duration, xticklabels=intervals, yticklabels=segments_new, annot=True, cmap='RdYlGn')
+
+# import pandas
+# import seaborn
+#
+# data = pandas.read_csv('support_data.csv')
+#
+# score_column = list(data['score'])
+# intervals_column = list(data['interval'])
+# promo_column = list(data['promo'])
+#
+# # список всех оценок
+# scores = list(range(11))
+#
+# # ваш код здесь
+# promo_count, score_count =0, 0
+# for i in range(len(data)):
+#     if (intervals_column[i] == 'До внедрения роботов' and
+#         promo_column[i] == 1):
+#         promo_count += 1
+#     if score_column[i] in scores:
+#         score_count += 1
+# average_promo_count = promo_count / score_count
+#
+# seaborn.barplot(x=scores, y=average_promo_count)
+
+# games_compactor_on = games[games['compactor'] == True]
+# games_compactor_off = games[games['compactor'] == False]
+
+# def add_element(collection):
+#     collection.append(0)
+#
+# some_list = [1,2,3]
+# add_element(some_list)
+# print(some_list)
+#
+# some_tuple = (1,2,3)
+# add_element(some_tuple)
+# print(some_tuple)
