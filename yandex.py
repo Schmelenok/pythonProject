@@ -335,3 +335,120 @@
 # some_tuple = (1,2,3)
 # add_element(some_tuple)
 # print(some_tuple)
+
+# a = int(1 000 000)
+# print
+# print(635/71/391==635/71/391)
+# print(635/(71/391))
+# print((635/71)/391)
+
+# import statistics
+#
+# ls = 1, 5, 2, 7, 1, 9, 3, 8, 5, 9
+#
+# mean = sum(ls) / len(ls)
+# print(mean, statistics.mean(ls))
+#
+# variance = sum((x - mean) ** 2 for x in ls) / (len(ls) - 1)
+# print(variance, statistics.variance(ls))
+#
+# stdev = variance ** (1 / 2)
+# print(stdev, statistics.stdev(ls))
+
+# print(int(input()) + int(input()))
+
+# n = int(input())
+# a = [int(i) for i in input().split()]
+# b = [int(i) for i in input().split()]
+# for i in range(n):
+# 	print(a[i], b[i], sep=' ', end=' ')
+
+# n, arr, k = int(input()), [int(i) for i in input().split()], int(input())
+# result = []
+# current_sum = sum(arr[0:k])
+# result.append(current_sum / k)
+# for i in range(0, n - k):
+#     current_sum -= arr[i]
+#     current_sum += arr[i+k]
+#     result.append(current_sum / k)
+#
+# print(*result)
+
+
+# for i in range(10):
+#     n1 = 400 + i * 10 + i
+#     n2 = i * 10 + 5
+#     print(n1, n2) if 41400+ i * 10 == n1 * n2 else None
+
+# s = 0
+# string = input()
+# text = input()
+# for i in range(len(string)):
+#     n = text.count(string[i])
+#     s += n
+# print(s)
+
+# string = input()
+# text = input()
+# counter = 0
+# for i in text:
+#     if i in string:
+#         counter += 1
+# print(counter)
+
+# with open('input.txt', 'r') as file, open('output.txt', 'w') as out:
+#     nums = map(int, file.readline().split())
+#     text = str(sum(nums))
+#     out.write(text)
+
+# with open('input.txt', 'r') as file, open('output.txt', 'w') as out:
+#     nums = map(int, file.readline().split())
+#     text = str(sum(nums))
+#     print(text, file=out)
+
+# n = int(input())
+# numbers = [int(i) for i in input().split()]
+# s = int(input())
+# def foo(n, numbers, s):
+#     for i in range(n):
+#         for j in range(i+1, n):
+#             if numbers[i] + numbers[j] == s:
+#                 return numbers[i], numbers[j]
+#     return None, ''
+# [print(i, end=' ') if i != None else print('None') for i in foo(n, numbers, s)]
+
+n = int(input())
+numbers = [int(i) for i in input().split()]
+s = int(input())
+
+
+def twosum_with_sort(n, num, s):
+    num.sort()
+    left = 0
+    right = n - 1
+    while left < right:
+        current_sum = num[left] + num[right]
+        if current_sum == s:
+            return num[left], num[right]
+        elif current_sum < s:
+            left += 1
+        else:
+            right -= 1
+    return None, ''
+
+
+[print(i, end=' ') if i != None else print('None') for i in twosum_with_sort(n, numbers, s)]
+
+# функция twosum_extra_ds(numbers, X):
+#     # Создаём вспомогательную структуру данных с быстрым поиском элемента.
+#     previous = set()
+#
+#     для каждого A из numbers:
+#         Y = X - A
+#         если Y уже лежит в previous, то:
+#             вернуть A, Y
+#         иначе:
+#             добавить A в previous
+#
+#     # Если ничего не нашлось в цикле, значит, нужной пары элементов в массиве нет.
+#     вернуть None, None
