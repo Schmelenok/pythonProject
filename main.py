@@ -317,16 +317,16 @@
 #
 #         segment_scores = [before_score / before_counter, after_score / after_counter]  # допишите код
 #         mean_scores.append(segment_scores)
-import random
-l = (1.504 * 10 ** 8, 8.72144 * 10 ** 7, 1.8 * 10 ** 6, 3.0905 * 10 ** 5, 7.6641 * 10 ** 5, 2.9554 * 10 ** 6, 5.66562 * 10 ** 7, 4.8 * 10, 7.613398 * 10 ** 6)
-l = sorted(l)
-s = sum(l)
-r = s - 2.99792458 * 10 ** 8
-x = random.choice(l)
-y = random.choice(l)
-while x + y != r:
-    x = random.choice(l)
-    y = random.choice(l)
-    while x == y:
-        y = random.choice(l)
-print(x, y)
+# import random
+# l = (1.504 * 10 ** 8, 8.72144 * 10 ** 7, 1.8 * 10 ** 6, 3.0905 * 10 ** 5, 7.6641 * 10 ** 5, 2.9554 * 10 ** 6, 5.66562 * 10 ** 7, 4.8 * 10, 7.613398 * 10 ** 6)
+# l = sorted(l)
+# s = sum(l)
+# r = s - 2.99792458 * 10 ** 8
+# x = random.choice(l)
+# y = random.choice(l)
+# while x + y != r:
+#     x = random.choice(l)
+#     y = random.choice(l)
+#     while x == y:
+#         y = random.choice(l)
+# print(x, y)
