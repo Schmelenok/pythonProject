@@ -417,27 +417,27 @@
 #     return None, ''
 # [print(i, end=' ') if i != None else print('None') for i in foo(n, numbers, s)]
 
-n = int(input())
-numbers = [int(i) for i in input().split()]
-s = int(input())
-
-
-def twosum_with_sort(n, num, s):
-    num.sort()
-    left = 0
-    right = n - 1
-    while left < right:
-        current_sum = num[left] + num[right]
-        if current_sum == s:
-            return num[left], num[right]
-        elif current_sum < s:
-            left += 1
-        else:
-            right -= 1
-    return None, ''
-
-
-[print(i, end=' ') if i != None else print('None') for i in twosum_with_sort(n, numbers, s)]
+# n = int(input())
+# numbers = [int(i) for i in input().split()]
+# s = int(input())
+#
+#
+# def twosum_with_sort(n, num, s):
+#     num.sort()
+#     left = 0
+#     right = n - 1
+#     while left < right:
+#         current_sum = num[left] + num[right]
+#         if current_sum == s:
+#             return num[left], num[right]
+#         elif current_sum < s:
+#             left += 1
+#         else:
+#             right -= 1
+#     return None, ''
+#
+#
+# [print(i, end=' ') if i != None else print('None') for i in twosum_with_sort(n, numbers, s)]
 
 # функция twosum_extra_ds(numbers, X):
 #     # Создаём вспомогательную структуру данных с быстрым поиском элемента.
